@@ -54,9 +54,10 @@ public class ApiDocToOpenApiWriter implements Writer {
         for (ApiDocEntry apiDocEntry : apiDoc.getApiDocEntries()){
             sb.append(" "+apiDocEntry.getPath()+": \n");
             for (String method : apiDocEntry.getBody().keySet()){
-                fileWriter.write(jsonObjectApiDocWriterComponent.format(method, apiDocEntry.getBody().get(method),2,""));
+                sb.append(jsonObjectApiDocWriterComponent.format(method.toLowerCase(), apiDocEntry.getBody().get(method),2,""));
             }
-
         }
+
+        fileWriter.write(sb.toString());
     }
 }

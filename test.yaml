@@ -1,5 +1,33 @@
+servers: 
+ - 
+   url: /
+ - 
+   url: localhost
 openapi: 3.0.0
 info: 
  description: test api
  title: title
  version: 2.0.0
+paths: 
+ /service/update2/json: 
+  post: 
+   description: request with urlParam
+   parameters: 
+    - 
+      schema: 
+       type: string
+       example: 11:2678313091
+      in: query
+      name: cup2key
+    - 
+      schema: 
+       type: string
+       example: cebe54fa97bb5c5119a14c19d0f027a0229df4d79eef1632a9d2de0a30ea9b39
+      in: query
+      name: cup2hreq
+ /generate_204: 
+  get: 
+   description: request without urlParam
+ /pc/module/transhelper/upswitch.dat: 
+  get: 
+   description: request without urlParam

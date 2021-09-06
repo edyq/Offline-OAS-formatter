@@ -35,9 +35,7 @@ public class ApiDoc {
         // set header Info
         JSONObject header = new JSONObject();
         // set version info
-        header.put(
-                "openapi", "3.0.0"
-        );
+        header.put("openapi", "3.0.0");
         // set api server address
         JSONArray servers = new JSONArray();
         JSONObject server1 = new JSONObject();

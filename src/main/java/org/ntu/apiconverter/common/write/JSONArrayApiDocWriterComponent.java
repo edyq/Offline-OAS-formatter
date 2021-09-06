@@ -34,11 +34,18 @@ public class JSONArrayApiDocWriterComponent implements ApiDocWriterComponent{
     public String format(String key, Object object, int level, String padding) {
         JSONArray jsonArray = (JSONArray) object;
         StringBuilder sb = new StringBuilder();
+        if (key != null){
+            indentation(level,sb);
+            sb.append(key+": ");
+            newLine(sb);
+            level+=1;
+        }
         for (Object obj : jsonArray.toArray()){
             indentation(level, sb);
             sb.append(padding);
             sb.append("- ");
-            writerComponent.get(obj.getClass()).format(null, obj, level+1, "  ");
+            newLine(sb);
+            sb.append(writerComponent.get(obj.getClass()).format(null, obj, level, "  "));
         }
 
         return sb.toString();

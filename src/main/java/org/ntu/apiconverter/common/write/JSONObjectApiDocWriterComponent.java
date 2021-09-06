@@ -24,21 +24,24 @@ public class JSONObjectApiDocWriterComponent implements ApiDocWriterComponent{
     public String format(String key, Object object, int level, String padding) {
         JSONObject jsonObject = (JSONObject) object;
         StringBuilder sb = new StringBuilder();
+
         if (key != null){
             indentation(level,sb);
+            sb.append(padding);
             sb.append(key+": ");
             newLine(sb);
             level+=1;
         }
 
+
         for (String temp_key : jsonObject.keySet()){
             ApiDocWriterComponent apiDocWriterComponent = writerComponent.get(jsonObject.get(temp_key).getClass());
             if (apiDocWriterComponent != null){
-                sb.append(apiDocWriterComponent.format(temp_key, jsonObject.get(temp_key), level+1, ""));
+                sb.append(apiDocWriterComponent.format(temp_key, jsonObject.get(temp_key), level, padding));
                 continue;
             }
             if (jsonObject.get(temp_key).getClass().isAssignableFrom(JSONObject.class)){
-                sb.append(this.format(temp_key, jsonObject.get(temp_key), level+1, ""));
+                sb.append(this.format(temp_key, jsonObject.get(temp_key), level, padding));
             }
         }
 

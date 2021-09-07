@@ -35,7 +35,8 @@ public class JSONObjectApiDocWriterComponent implements ApiDocWriterComponent{
 
 
         for (String temp_key : jsonObject.keySet()){
-            ApiDocWriterComponent apiDocWriterComponent = writerComponent.get(jsonObject.get(temp_key).getClass());
+            ApiDocWriterComponent apiDocWriterComponent = null;
+            apiDocWriterComponent = writerComponent.get(jsonObject.get(temp_key).getClass());
             if (apiDocWriterComponent != null){
                 sb.append(apiDocWriterComponent.format(temp_key, jsonObject.get(temp_key), level, padding));
                 continue;

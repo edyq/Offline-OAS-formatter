@@ -2,19 +2,26 @@ package org.ntu.apiconverter.common.method;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import lombok.Getter;
+import lombok.Setter;
 import org.bson.Document;
+import org.ntu.apiconverter.common.method.content.ContentParserStrategy;
+import org.ntu.apiconverter.common.method.content.JSONContentParserStrategy;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Getter
+@Setter
 public class GetStrategy implements MethodTypeStrategy{
-    private List<String> supportedResponseType;
+    private Map<String, ContentParserStrategy> supportedResponseType;
 
     public GetStrategy(){
-        supportedResponseType = new ArrayList<>();
-        supportedResponseType.add("application/json");
-        supportedResponseType.add("application/x-www-form-urlencoded");
+        supportedResponseType = new HashMap<>();
+        supportedResponseType.put("application/json", new JSONContentParserStrategy());
+//        supportedResponseType.add("application/x-www-form-urlencoded");
     }
 
     @Override
@@ -51,17 +58,23 @@ public class GetStrategy implements MethodTypeStrategy{
     protected JSONObject formatResponses(Document response){
         JSONObject jsonObject = new JSONObject();
         JSONObject responseContent = new JSONObject();
+        jsonObject.put(String.valueOf(response.get("status_code")), responseContent);
+
         responseContent.put("description","response with code "+response.get("status_code"));
 
+        JSONObject content = formatContent(response);
 
-//        if (supportedResponseType.indexOf(response.get("content-type")) != -1){
-//            JSONObject content = new JSONObject();
-//            for (response.)
-//            JSONObject schema = new JSONObject();
-//        }
-//
-//        responseContent.put("content",content);
-//        jsonObject.put(response.get("status_code"),);
+        if (content != null){
+            responseContent.put("content", content);
+        }
+
         return jsonObject;
+    }
+
+    protected JSONObject formatContent(Document response){
+        if (supportedResponseType.containsKey(response.getString("content-type"))){
+            return supportedResponseType.get(response.getString("content-type")).parse((Document) response.get("content"));
+        }
+        return null;
     }
 }

@@ -64,14 +64,14 @@ public class ApiDocToOpenApiWriter implements Writer {
 
     public void writeBodyInfo(FileWriter fileWriter, ApiDoc apiDoc) throws IOException {
         StringBuilder sb = new StringBuilder();
-        sb.append("paths: \n");
+        fileWriter.write("paths: \n");
         for (ApiDocEntry apiDocEntry : apiDoc.getApiDocEntries()){
-            sb.append(" "+apiDocEntry.getPath()+": \n");
+            fileWriter.write(" "+apiDocEntry.getPath()+": \n");
             for (String method : apiDocEntry.getBody().keySet()){
-                sb.append(jsonObjectApiDocFormatter.format(method.toLowerCase(), apiDocEntry.getBody().get(method),2,""));
+                fileWriter.write(jsonObjectApiDocFormatter.format(method.toLowerCase(), apiDocEntry.getBody().get(method),2,""));
             }
         }
 
-        fileWriter.write(sb.toString());
+//        fileWriter.write(sb.toString());
     }
 }

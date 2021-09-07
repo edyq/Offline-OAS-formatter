@@ -9,3 +9,670 @@ info:
  title: title
  version: 2.0.0
 paths: 
+ /ddm/activity/dc_oe=ChMIh42js5bs8gIVQoZmAh3WLg6rEAAYACDkkpFK;met=1;&timestamp=1630994095026;eid1=2;ecn1=0;etm1=10;: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /pagead/gen_204: 
+  get: 
+   description: request with urlParam
+   responses: 
+    204: 
+     description: response with code 204
+   parameters: 
+    - 
+      schema: 
+       type: string
+       example: eos
+      in: query
+      name: id
+    - 
+      schema: 
+       type: string
+       example: eos
+      in: query
+      name: type
+    - 
+      schema: 
+       type: string
+       example: 0
+      in: query
+      name: mcvt
+    - 
+      schema: 
+       type: string
+       example: 2147,325,2238,1054
+      in: query
+      name: p
+    - 
+      schema: 
+       type: string
+       example: 0,0,0,32767,32782
+      in: query
+      name: mtos
+    - 
+      schema: 
+       type: string
+       example: 0,0,0,32767,15
+      in: query
+      name: tos
+    - 
+      schema: 
+       type: string
+       example: 20210901
+      in: query
+      name: v
+    - 
+      schema: 
+       type: string
+       example: 7
+      in: query
+      name: bin
+    - 
+      schema: 
+       type: string
+       example: nio
+      in: query
+      name: avms
+    - 
+      schema: 
+       type: string
+       example: 0,0
+      in: query
+      name: bs
+    - 
+      schema: 
+       type: string
+       example: 0.35
+      in: query
+      name: mc
+    - 
+      schema: 
+       type: string
+       example: 1
+      in: query
+      name: if
+    - 
+      schema: 
+       type: string
+       example: 0
+      in: query
+      name: app
+    - 
+      schema: 
+       type: string
+       example: 22
+      in: query
+      name: itpl
+    - 
+      schema: 
+       type: string
+       example: 138133868
+      in: query
+      name: adk
+    - 
+      schema: 
+       type: string
+       example: 2
+      in: query
+      name: rs
+    - 
+      schema: 
+       type: string
+       example: mue
+      in: query
+      name: met
+    - 
+      schema: 
+       type: string
+       example: 0
+      in: query
+      name: la
+    - 
+      schema: 
+       type: string
+       example: 0
+      in: query
+      name: cr
+    - 
+      schema: 
+       type: string
+       example: 1
+      in: query
+      name: osd
+    - 
+      schema: 
+       type: string
+       example: WyJXaW5kb3dzIiwiMTAuMC4wIiwieDg2IiwiIiwiOTMuMC40NTc3LjYzIixbXSxudWxsLG51bGwsIjY0Il0%3D
+      in: query
+      name: uach
+    - 
+      schema: 
+       type: string
+       example: 3
+      in: query
+      name: vs
+    - 
+      schema: 
+       type: string
+       example: 0
+      in: query
+      name: eosc
+    - 
+      schema: 
+       type: string
+       example: 1
+      in: query
+      name: eosm
+    - 
+      schema: 
+       type: string
+       example: 1630994073723
+      in: query
+      name: rst
+    - 
+      schema: 
+       type: string
+       example: 708
+      in: query
+      name: rpt
+    - 
+      schema: 
+       type: string
+       example: u
+      in: query
+      name: r
+ /ddm/activity/dc_oe=ChMIh42js5bs8gIVQoZmAh3WLg6rEAAYACDkkpFK;met=1;&timestamp=1630994110703;eid1=2;ecn1=0;etm1=15;: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /pcs/activeview: 
+  get: 
+   description: request with urlParam
+   responses: 
+    200: 
+     description: response with code 200
+   parameters: 
+    - 
+      schema: 
+       type: string
+       example: AKAOjsstkmAwHnGoaD9ZvvBl-XBmyq5Hpm8GZs0364_5mg8sSJtV9HOfrEKp_8U9eqQo3HC-GVY8cuaIr64uR-yLy0LYK8Vszx-7ww
+      in: query
+      name: xai
+    - 
+      schema: 
+       type: string
+       example: Cg0ArKJSzHW7YCiJ621tEAE
+      in: query
+      name: sig
+    - 
+      schema: 
+       type: string
+       example: lidartos
+      in: query
+      name: id
+    - 
+      schema: 
+       type: string
+       example: 2007
+      in: query
+      name: mcvt
+    - 
+      schema: 
+       type: string
+       example: 659,1140,1260,1301
+      in: query
+      name: p
+    - 
+      schema: 
+       type: string
+       example: 19,615,2007,2807,2807
+      in: query
+      name: mtos
+    - 
+      schema: 
+       type: string
+       example: 19,596,1392,800,0
+      in: query
+      name: tos
+    - 
+      schema: 
+       type: string
+       example: 20210901
+      in: query
+      name: v
+    - 
+      schema: 
+       type: string
+       example: 7
+      in: query
+      name: bin
+    - 
+      schema: 
+       type: string
+       example: nio
+      in: query
+      name: avms
+    - 
+      schema: 
+       type: string
+       example: 0,0
+      in: query
+      name: bs
+    - 
+      schema: 
+       type: string
+       example: 1
+      in: query
+      name: mc
+    - 
+      schema: 
+       type: string
+       example: 1
+      in: query
+      name: if
+    - 
+      schema: 
+       type: string
+       example: 0
+      in: query
+      name: app
+    - 
+      schema: 
+       type: string
+       example: 20
+      in: query
+      name: itpl
+    - 
+      schema: 
+       type: string
+       example: 1846674630
+      in: query
+      name: adk
+    - 
+      schema: 
+       type: string
+       example: 2
+      in: query
+      name: rs
+    - 
+      schema: 
+       type: string
+       example: ie
+      in: query
+      name: met
+    - 
+      schema: 
+       type: string
+       example: 0
+      in: query
+      name: la
+    - 
+      schema: 
+       type: string
+       example: 0
+      in: query
+      name: cr
+    - 
+      schema: 
+       type: string
+       example: 1
+      in: query
+      name: osd
+    - 
+      schema: 
+       type: string
+       example: WyJXaW5kb3dzIiwiMTAuMC4wIiwieDg2IiwiIiwiOTMuMC40NTc3LjYzIixbXSxudWxsLG51bGwsIjY0Il0%3D
+      in: query
+      name: uach
+    - 
+      schema: 
+       type: string
+       example: 4
+      in: query
+      name: vs
+    - 
+      schema: 
+       type: string
+       example: 0
+      in: query
+      name: eosc
+    - 
+      schema: 
+       type: string
+       example: 1
+      in: query
+      name: eosm
+    - 
+      schema: 
+       type: string
+       example: 1630994073732
+      in: query
+      name: rst
+    - 
+      schema: 
+       type: string
+       example: 1264
+      in: query
+      name: rpt
+    - 
+      schema: 
+       type: string
+       example: u
+      in: query
+      name: r
+    - 
+      schema: 
+       type: string
+       example: 0
+      in: query
+      name: ec
+ /domainreliability/upload: 
+  post: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /gen_204: 
+  post: 
+   description: request with urlParam
+   responses: 
+    204: 
+     description: response with code 204
+   parameters: 
+    - 
+      schema: 
+       type: string
+       example: web
+      in: query
+      name: s
+    - 
+      schema: 
+       type: string
+       example: aft
+      in: query
+      name: t
+    - 
+      schema: 
+       type: string
+       example: csi
+      in: query
+      name: atyp
+    - 
+      schema: 
+       type: string
+       example: lf42YfmiMKPsz7sP56epyAs
+      in: query
+      name: ei
+    - 
+      schema: 
+       type: string
+       example: wsrt.4,aft.174,sct.111
+      in: query
+      name: rt
+    - 
+      schema: 
+       type: string
+       example: 1
+      in: query
+      name: imn
+    - 
+      schema: 
+       type: string
+       example: 0
+      in: query
+      name: ima
+    - 
+      schema: 
+       type: string
+       example: 0
+      in: query
+      name: imad
+    - 
+      schema: 
+       type: string
+       example: -1
+      in: query
+      name: aftp
+    - 
+      schema: 
+       type: string
+       example: 1
+      in: query
+      name: bb
+    - 
+      schema: 
+       type: string
+       example: Wtym
+      in: query
+      name: bl
+  get: 
+   description: request with urlParam
+   responses: 
+    204: 
+     description: response with code 204
+   parameters: 
+    - 
+      schema: 
+       type: string
+       example: i
+      in: query
+      name: atyp
+    - 
+      schema: 
+       type: string
+       example: backbutton
+      in: query
+      name: ct
+    - 
+      schema: 
+       type: string
+       example: 
+      in: query
+      name: cad
+    - 
+      schema: 
+       type: string
+       example: navigation
+      in: query
+      name: tt
+    - 
+      schema: 
+       type: string
+       example: lf42YfmiMKPsz7sP56epyAs
+      in: query
+      name: ei
+    - 
+      schema: 
+       type: string
+       example: 67584
+      in: query
+      name: trs
+    - 
+      schema: 
+       type: string
+       example: 1630994110882
+      in: query
+      name: zx
+ /velog/onb: 
+  get: 
+   description: request with urlParam
+   responses: 
+    200: 
+     description: response with code 200
+   parameters: 
+    - 
+      schema: 
+       type: string
+       example: i
+      in: query
+      name: atyp
+    - 
+      schema: 
+       type: string
+       example: 
+      in: query
+      name: ct
+    - 
+      schema: 
+       type: string
+       example: eol
+      in: query
+      name: cad
+    - 
+      schema: 
+       type: string
+       example: 6
+      in: query
+      name: eobfc
+    - 
+      schema: 
+       type: string
+       example: qmongodb%E6%B8%85%E7%A9%BA%E6%95%B0%E6%8D%AE%E5%BA%93|qmongodb%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95|qmongodb%E6%A0%B9%E6%8D%AE%E6%9D%A1%E4%BB%B6%E5%88%A0%E9%99%A4|qmongodb%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7|qmongodb%E5%88%A0%E9%99%A4%E5%A4%9A%E6%9D%A1%E8%AE%B0%E5%BD%95|qmongodb%E5%88%A0%E9%99%A4%E5%AD%97%E6%AE%B5
+      in: query
+      name: eob
+    - 
+      schema: 
+       type: string
+       example: eol.340
+      in: query
+      name: rt
+    - 
+      schema: 
+       type: string
+       example: 0
+      in: query
+      name: v
+    - 
+      schema: 
+       type: string
+       example: 12ahUKEwi5waSxluzyAhUj9nMBHedTCrkQ2Z0BegQIBBAC..s;2ahUKEwi5waSxluzyAhUj9nMBHedTCrkQx40DegQIKxAA..s;2ahUKEwi5waSxluzyAhUj9nMBHedTCrkQ2Z0BegQIBBAC..i
+      in: query
+      name: vet
+    - 
+      schema: 
+       type: string
+       example: lf42YfmiMKPsz7sP56epyAs
+      in: query
+      name: ei
+    - 
+      schema: 
+       type: string
+       example: 1630994110987
+      in: query
+      name: zx
+ /complete/search: 
+  get: 
+   description: request with urlParam
+   responses: 
+    200: 
+     description: response with code 200
+   parameters: 
+    - 
+      schema: 
+       type: string
+       example: mongodb%E6%B8%85%E7%A9%BA
+      in: query
+      name: q
+    - 
+      schema: 
+       type: string
+       example: 0
+      in: query
+      name: cp
+    - 
+      schema: 
+       type: string
+       example: desktop-gws-wiz-on-focus-serp
+      in: query
+      name: client
+    - 
+      schema: 
+       type: string
+       example: t
+      in: query
+      name: xssi
+    - 
+      schema: 
+       type: string
+       example: zh-CN
+      in: query
+      name: hl
+    - 
+      schema: 
+       type: string
+       example: 0
+      in: query
+      name: authuser
+    - 
+      schema: 
+       type: string
+       example: mongodb%E6%B8%85%E7%A9%BA
+      in: query
+      name: pq
+    - 
+      schema: 
+       type: string
+       example: lf42YfmiMKPsz7sP56epyAs.1630994110917
+      in: query
+      name: psi
+    - 
+      schema: 
+       type: string
+       example: EAEyHAoYChZtb25nb2Ri5riF56m65pWw5o2u5bqTEEc
+      in: query
+      name: ofp
+    - 
+      schema: 
+       type: string
+       example: 2.625
+      in: query
+      name: dpr
+ /adsid/google/ui: 
+  get: 
+   description: request without urlParam
+   responses: 
+    204: 
+     description: response with code 204
+ /fwlink/: 
+  get: 
+   description: request with urlParam
+   responses: 
+    403: 
+     description: response with code 403
+   parameters: 
+    - 
+      schema: 
+       type: string
+       example: 834877
+      in: query
+      name: linkid
+ /ads/measurement/t: 
+  get: 
+   description: request without urlParam
+   responses: 
+    302: 
+     description: response with code 302
+ /measurement: 
+  get: 
+   description: request with urlParam
+   responses: 
+    200: 
+     description: response with code 200
+   parameters: 
+    - 
+      schema: 
+       type: string
+       example: AJHaeXLRcrCzld5R93xLYuQ_bIfhcfrfB5ZFamNCSGRp2UISSPwB9H3PBQ
+      in: query
+      name: jaid
+    - 
+      schema: 
+       type: string
+       example: 19256
+      in: query
+      name: jaidet

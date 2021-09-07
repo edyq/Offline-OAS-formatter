@@ -37,8 +37,9 @@ public class DuplicationDetectionHandler implements Handler{
                 // tbd: multiple responses
                 if (apiDocEntry.getBody().keySet().contains(((String)document.get("method")))) {
                     return null;
+                } else {
+                    return arg;
                 }
-                break;
             }
         }
         ApiDocEntry temp_apiDocEntry = new ApiDocEntry((String)document.get("path"));

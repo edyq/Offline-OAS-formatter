@@ -26,7 +26,7 @@ public class ApiDocFormatterMediator {
             return apiDocFormatter.format((String)params[0], params[1], (Integer)params[2], (String)params[3]);
         }
 
-        return null;
+        return "";
     }
 
 }

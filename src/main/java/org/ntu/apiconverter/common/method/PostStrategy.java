@@ -10,7 +10,7 @@ public class PostStrategy extends GetStrategy{
         JSONObject jsonObject = super.construct(content);
 
         JSONObject content_obj = super.formatContent(content);
-        if (content != null){
+        if (content_obj != null){
             JSONObject requestBody = new JSONObject();
             jsonObject.put("requestBody",requestBody);
             requestBody.put("content",content_obj);

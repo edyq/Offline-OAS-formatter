@@ -1,6 +1,11 @@
 package org.ntu.apiconverter.writer;
 
-import org.ntu.apiconverter.common.write.JSONObjectApiDocWriterComponent;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import org.ntu.apiconverter.common.write.ApiDocFormatterMediator;
+import org.ntu.apiconverter.common.write.JSONArrayApiDocFormatter;
+import org.ntu.apiconverter.common.write.JSONObjectApiDocFormatter;
+import org.ntu.apiconverter.common.write.StringApiDocFormatter;
 import org.ntu.apiconverter.entity.ApiDoc;
 import org.ntu.apiconverter.entity.ApiDocEntry;
 
@@ -10,12 +15,21 @@ public class ApiDocToOpenApiWriter implements Writer {
 
     private String outputPath;
 
-    private JSONObjectApiDocWriterComponent jsonObjectApiDocWriterComponent;
+    private JSONObjectApiDocFormatter jsonObjectApiDocFormatter;
 
     public ApiDocToOpenApiWriter(){
         outputPath = "test.yaml";
 
-        jsonObjectApiDocWriterComponent = new JSONObjectApiDocWriterComponent();
+        initApiFormatters();
+    }
+
+    public void initApiFormatters(){
+        ApiDocFormatterMediator apiDocWriterMediator = new ApiDocFormatterMediator();
+        jsonObjectApiDocFormatter = new JSONObjectApiDocFormatter(apiDocWriterMediator);
+        apiDocWriterMediator.registerApiDocFormatter(String.class, new StringApiDocFormatter());
+        apiDocWriterMediator.registerApiDocFormatter(JSONArray.class, new JSONArrayApiDocFormatter(apiDocWriterMediator));
+        apiDocWriterMediator.registerApiDocFormatter(JSONObject.class, jsonObjectApiDocFormatter);
+
     }
 
 
@@ -45,7 +59,7 @@ public class ApiDocToOpenApiWriter implements Writer {
     }
 
     public void writeHeaderInfo(FileWriter fileWriter, ApiDoc apiDoc) throws IOException {
-        fileWriter.write(jsonObjectApiDocWriterComponent.format(null, apiDoc.getHeaderInfo(), 0, ""));
+        fileWriter.write(jsonObjectApiDocFormatter.format(null, apiDoc.getHeaderInfo(), 0, ""));
     }
 
     public void writeBodyInfo(FileWriter fileWriter, ApiDoc apiDoc) throws IOException {
@@ -54,7 +68,7 @@ public class ApiDocToOpenApiWriter implements Writer {
         for (ApiDocEntry apiDocEntry : apiDoc.getApiDocEntries()){
             sb.append(" "+apiDocEntry.getPath()+": \n");
             for (String method : apiDocEntry.getBody().keySet()){
-                sb.append(jsonObjectApiDocWriterComponent.format(method.toLowerCase(), apiDocEntry.getBody().get(method),2,""));
+                sb.append(jsonObjectApiDocFormatter.format(method.toLowerCase(), apiDocEntry.getBody().get(method),2,""));
             }
         }
 

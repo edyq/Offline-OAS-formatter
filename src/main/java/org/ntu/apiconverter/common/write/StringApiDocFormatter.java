@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 /**
  *
  */
-public class StringApiDocWriterComponent implements ApiDocWriterComponent{
+public class StringApiDocFormatter extends ApiDocFormatter{
     @Override
     public String format(String key, Object object, int level, String padding) {
         if (!object.getClass().isAssignableFrom(String.class)){

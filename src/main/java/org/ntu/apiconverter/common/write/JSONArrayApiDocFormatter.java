@@ -6,14 +6,12 @@ import com.alibaba.fastjson.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class JSONArrayApiDocWriterComponent implements ApiDocWriterComponent{
+public class JSONArrayApiDocFormatter extends ApiDocFormatter{
 
-    private Map<Class, ApiDocWriterComponent> writerComponent;
+    private Map<Class, ApiDocFormatter> writerComponent;
 
-    public JSONArrayApiDocWriterComponent(JSONObjectApiDocWriterComponent jsonObjectApiDocWriterComponent, StringApiDocWriterComponent stringApiDocWriterComponent) {
-        writerComponent = new HashMap<>();
-        writerComponent.put(JSONObject.class, jsonObjectApiDocWriterComponent);
-        writerComponent.put(String.class, stringApiDocWriterComponent);
+    public JSONArrayApiDocFormatter(ApiDocFormatterMediator mediator) {
+        setApiDocFormatterMediator(mediator);
     }
     //    @Override
 //    public String format(JSONObject jsonObject, int level) {
@@ -45,7 +43,7 @@ public class JSONArrayApiDocWriterComponent implements ApiDocWriterComponent{
             sb.append(padding);
             sb.append("- ");
             newLine(sb);
-            sb.append(writerComponent.get(obj.getClass()).format(null, obj, level, "  "));
+            sb.append(getApiDocFormatterMediator().relay(obj.getClass(),new Object[]{ null, obj, level, "  " }));
         }
 
         return sb.toString();

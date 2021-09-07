@@ -1,13 +1,6 @@
-package org.ntu.apiconverter.common.write;
+package org.ntu.apiconverter.common.formatter;
 
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.sun.org.apache.xerces.internal.xs.ItemPSVI;
-
-import java.awt.*;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class JSONObjectApiDocFormatter extends ApiDocFormatter{
 

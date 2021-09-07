@@ -1,9 +1,7 @@
-package org.ntu.apiconverter.common.write;
+package org.ntu.apiconverter.common.formatter;
 
 import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class JSONArrayApiDocFormatter extends ApiDocFormatter{

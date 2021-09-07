@@ -1,6 +1,5 @@
-package org.ntu.apiconverter.common.write;
+package org.ntu.apiconverter.common.formatter;
 
-import com.alibaba.fastjson.JSONObject;
 import lombok.Getter;
 import lombok.Setter;
 

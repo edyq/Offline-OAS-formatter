@@ -1,10 +1,9 @@
-package org.ntu.apiconverter.common.write;
+package org.ntu.apiconverter.common.formatter;
 
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Setter

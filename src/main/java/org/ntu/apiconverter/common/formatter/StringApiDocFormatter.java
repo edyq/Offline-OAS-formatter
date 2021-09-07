@@ -1,6 +1,4 @@
-package org.ntu.apiconverter.common.write;
-
-import com.alibaba.fastjson.JSONObject;
+package org.ntu.apiconverter.common.formatter;
 
 /**
  *

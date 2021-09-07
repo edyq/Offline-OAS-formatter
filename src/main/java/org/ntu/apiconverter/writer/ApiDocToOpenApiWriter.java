@@ -2,10 +2,10 @@ package org.ntu.apiconverter.writer;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import org.ntu.apiconverter.common.write.ApiDocFormatterMediator;
-import org.ntu.apiconverter.common.write.JSONArrayApiDocFormatter;
-import org.ntu.apiconverter.common.write.JSONObjectApiDocFormatter;
-import org.ntu.apiconverter.common.write.StringApiDocFormatter;
+import org.ntu.apiconverter.common.formatter.ApiDocFormatterMediator;
+import org.ntu.apiconverter.common.formatter.JSONArrayApiDocFormatter;
+import org.ntu.apiconverter.common.formatter.JSONObjectApiDocFormatter;
+import org.ntu.apiconverter.common.formatter.StringApiDocFormatter;
 import org.ntu.apiconverter.entity.ApiDoc;
 import org.ntu.apiconverter.entity.ApiDocEntry;
 

@@ -6,6 +6,7 @@ import org.ntu.apiconverter.entity.ApiDocEntry;
 import org.ntu.apiconverter.handler.context.ApiDocHandlerContext;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 
@@ -13,6 +14,7 @@ import java.util.Set;
  * this handler checks if Document already in ApiDoc
  */
 public class DuplicationDetectionHandler implements Handler{
+
     @Override
     public boolean supports(Object arg) {
         return arg != null && arg.getClass().isAssignableFrom(Document.class);
@@ -34,8 +36,12 @@ public class DuplicationDetectionHandler implements Handler{
         for (ApiDocEntry apiDocEntry : apiDocEntries){
             if (apiDocEntry.getPath().equals(document.get("path"))){
                 // if path exists and method, return null
-                // tbd: multiple responses
+                // tbd: refactor
                 if (apiDocEntry.getBody().keySet().contains(((String)document.get("method")))) {
+                    JSONObject methodObj = apiDocEntry.getBody().get((String)document.get("method"));
+                    if (!methodObj.containsKey("responses") || !methodObj.getJSONObject("responses").containsKey(((Document)document.get("response")).get("status_code"))){
+                        return arg;
+                    }
                     return null;
                 } else {
                     return arg;

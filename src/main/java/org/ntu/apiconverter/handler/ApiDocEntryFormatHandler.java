@@ -5,6 +5,7 @@ import org.bson.Document;
 import org.ntu.apiconverter.common.method.GetStrategy;
 import org.ntu.apiconverter.common.method.MethodTypeStrategy;
 import org.ntu.apiconverter.common.method.PostStrategy;
+import org.ntu.apiconverter.entity.ApiDoc;
 import org.ntu.apiconverter.entity.ApiDocEntry;
 import org.ntu.apiconverter.handler.context.ApiDocHandlerContext;
 
@@ -37,22 +38,22 @@ public class ApiDocEntryFormatHandler implements Handler{
     public Object doHandle(ApiDocHandlerContext ctx, Object arg) {
         // assume that the document can be added already(no duplication)
         Document document = (Document) arg;
-        ApiDocEntry apiDocEntry = null;
-        // find the target entry
-        List<ApiDocEntry> entries = ctx.getApiDoc().getApiDocEntries();
-        for (ApiDocEntry entry : entries){
-            if (entry.getPath().equals(document.get("path"))){
-                apiDocEntry = entry;
-                break;
+
+        ApiDoc apiDoc = ctx.getApiDoc();
+
+
+
+        for (ApiDocEntry apiDocEntry : apiDoc.getApiDocEntries()){
+            if (apiDocEntry.equals(document.getString("path"))){
+                // if exists, update(status code and method type)
+                return arg;
             }
         }
 
-        // double check
-        if (apiDocEntry == null){
-            return null;
-        }
-        // insert method
-        apiDocEntry.getBody().put((String)document.get("method"), methodTypeStrategyMap.get(document.get("method")).construct(document));
+        // if not, insert new
+        ApiDocEntry newApiDocEntry = new ApiDocEntry((String)document.get("path"));
+        apiDoc.addNewApiDocEntry(newApiDocEntry);
+        newApiDocEntry.getBody().put((String)document.get("method"), methodTypeStrategyMap.get(document.get("method")).construct(document));
         return arg;
     }
 }

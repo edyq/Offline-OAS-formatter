@@ -55,7 +55,6 @@ public class ApiDocToOpenApiWriter implements Writer {
                 e.printStackTrace();
             }
         }
-
     }
 
     public void writeHeaderInfo(FileWriter fileWriter, ApiDoc apiDoc) throws IOException {
@@ -63,7 +62,6 @@ public class ApiDocToOpenApiWriter implements Writer {
     }
 
     public void writeBodyInfo(FileWriter fileWriter, ApiDoc apiDoc) throws IOException {
-        StringBuilder sb = new StringBuilder();
         fileWriter.write("paths: \n");
         for (ApiDocEntry apiDocEntry : apiDoc.getApiDocEntries()){
             fileWriter.write(" "+apiDocEntry.getPath()+": \n");
@@ -71,7 +69,5 @@ public class ApiDocToOpenApiWriter implements Writer {
                 fileWriter.write(jsonObjectApiDocFormatter.format(method.toLowerCase(), apiDocEntry.getBody().get(method),2,""));
             }
         }
-
-//        fileWriter.write(sb.toString());
     }
 }

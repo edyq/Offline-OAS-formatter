@@ -33,8 +33,10 @@ public class DuplicationDetectionHandler implements Handler{
 
         // checks if path exists
         List<ApiDocEntry> apiDocEntries = apiDoc.getApiDocEntries();
+
         for (ApiDocEntry apiDocEntry : apiDocEntries){
             if (apiDocEntry.getPath().equals(document.get("path"))){
+<<<<<<< Updated upstream
                 // if path exists and method, return null
                 // tbd: refactor
                 if (apiDocEntry.getBody().keySet().contains(((String)document.get("method")))) {
@@ -44,12 +46,22 @@ public class DuplicationDetectionHandler implements Handler{
                     }
                     return null;
                 } else {
+=======
+                // if path, method, and status code exists, return null
+                if (apiDocEntry.getMethods().size() ==0 || apiDocEntry.getResponseCode().size() == 0){
+>>>>>>> Stashed changes
                     return arg;
                 }
+
+                if (apiDocEntry.getMethods().contains(document.getString("method"))
+                        && apiDocEntry.getResponseCode().contains(((Document)document.get("response")).getString("status_code"))) {
+                    return null;
+                }
+
+                return arg;
             }
         }
-        ApiDocEntry temp_apiDocEntry = new ApiDocEntry((String)document.get("path"));
-        apiDoc.addNewApiDocEntry(temp_apiDocEntry);
+
         return arg;
     }
 

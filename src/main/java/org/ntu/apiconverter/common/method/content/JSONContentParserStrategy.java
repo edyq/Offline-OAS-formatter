@@ -35,6 +35,7 @@ public class JSONContentParserStrategy extends ContentParserStrategy {
                 property.put("type","string");
                 continue;
             }
+
             if (document.get(key).getClass().isAssignableFrom(Integer.class)){
                 JSONObject property = new JSONObject();
                 properties.put(key,property);

@@ -23,16 +23,15 @@ public class JSONContentParserStrategy extends ContentParserStrategy {
         for (String key : document.keySet()){
             if (document.get(key).getClass().isAssignableFrom(Document.class)){
                 properties.put(key, recursivelyParseObjectType((Document) document.get(key)));
-                continue;
             }
             else {
                 JSONObject property = new JSONObject();
-                property.put("example",document.getString(key));
+                property.put("example",document.get(key).toString());
                 if (super.getSpecialChar().indexOf(key.charAt(0)) != -1) {
                     key = '"' + key + '"';
                 }
-                property.put("example",document.get(key));
-                property = PatternMatcherUtil.matchPattern((String)document.get(key),property);
+                property.put("example",document.get(key).toString());
+                property = PatternMatcherUtil.matchPattern(document.get(key).toString(), property);
                 properties.put(key,property);
             }
 

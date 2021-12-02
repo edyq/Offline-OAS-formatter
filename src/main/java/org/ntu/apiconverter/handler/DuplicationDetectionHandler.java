@@ -36,32 +36,21 @@ public class DuplicationDetectionHandler implements Handler{
 
         for (ApiDocEntry apiDocEntry : apiDocEntries){
             if (apiDocEntry.getPath().equals(document.get("path"))){
-<<<<<<< Updated upstream
-                // if path exists and method, return null
-                // tbd: refactor
                 if (apiDocEntry.getBody().keySet().contains(((String)document.get("method")))) {
-                    JSONObject methodObj = apiDocEntry.getBody().get((String)document.get("method"));
-                    if (!methodObj.containsKey("responses") || !methodObj.getJSONObject("responses").containsKey(((Document)document.get("response")).get("status_code"))){
+                    JSONObject methodObj = apiDocEntry.getBody().get(document.getString("method"));
+                    // check response status code duplication
+                    if (!methodObj.containsKey(String.valueOf(((Document)document.get("response")).get("status_code")))){
                         return arg;
                     }
                     return null;
                 } else {
-=======
-                // if path, method, and status code exists, return null
-                if (apiDocEntry.getMethods().size() ==0 || apiDocEntry.getResponseCode().size() == 0){
->>>>>>> Stashed changes
                     return arg;
                 }
-
-                if (apiDocEntry.getMethods().contains(document.getString("method"))
-                        && apiDocEntry.getResponseCode().contains(((Document)document.get("response")).getString("status_code"))) {
-                    return null;
-                }
-
-                return arg;
             }
         }
-
+        // if request not included, create a new entry
+        ApiDocEntry temp_apiDocEntry = new ApiDocEntry((String)document.get("path"));
+        apiDoc.addNewApiDocEntry(temp_apiDocEntry);
         return arg;
     }
 

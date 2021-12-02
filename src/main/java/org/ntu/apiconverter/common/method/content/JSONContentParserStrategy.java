@@ -2,6 +2,7 @@ package org.ntu.apiconverter.common.method.content;
 
 import com.alibaba.fastjson.JSONObject;
 import org.bson.Document;
+import org.ntu.apiconverter.matcher.PatternMatcherUtil;
 
 public class JSONContentParserStrategy extends ContentParserStrategy {
     @Override
@@ -24,24 +25,17 @@ public class JSONContentParserStrategy extends ContentParserStrategy {
                 properties.put(key, recursivelyParseObjectType((Document) document.get(key)));
                 continue;
             }
-            // tbd: refactor?
-            if (document.get(key).getClass().isAssignableFrom(String.class)){
+            else {
                 JSONObject property = new JSONObject();
                 property.put("example",document.getString(key));
                 if (super.getSpecialChar().indexOf(key.charAt(0)) != -1) {
                     key = '"' + key + '"';
                 }
+                property.put("example",document.get(key));
+                property = PatternMatcherUtil.matchPattern((String)document.get(key),property);
                 properties.put(key,property);
-                property.put("type","string");
-                continue;
             }
 
-            if (document.get(key).getClass().isAssignableFrom(Integer.class)){
-                JSONObject property = new JSONObject();
-                properties.put(key,property);
-                property.put("type","integer");
-                property.put("example",document.get(key));
-            }
         }
         return res;
     }

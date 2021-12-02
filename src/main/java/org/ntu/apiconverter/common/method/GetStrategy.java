@@ -7,6 +7,8 @@ import lombok.Setter;
 import org.bson.Document;
 import org.ntu.apiconverter.common.method.content.ContentParserStrategy;
 import org.ntu.apiconverter.common.method.content.JSONContentParserStrategy;
+import org.ntu.apiconverter.common.method.content.WwwFormUrlencodedContentParserStrategy;
+import org.ntu.apiconverter.matcher.PatternMatcherUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +23,7 @@ public class GetStrategy implements MethodTypeStrategy{
     public GetStrategy(){
         supportedResponseType = new HashMap<>();
         supportedResponseType.put("application/json", new JSONContentParserStrategy());
-//        supportedResponseType.add("application/x-www-form-urlencoded");
+        supportedResponseType.put("application/x-www-form-urlencoded", new WwwFormUrlencodedContentParserStrategy());
     }
 
     @Override
@@ -39,8 +41,22 @@ public class GetStrategy implements MethodTypeStrategy{
             jsonObject.put("description","request without urlParam");
         }
 
-        jsonObject.put("responses",formatResponses((Document)content.get("response")));
+
+        jsonObject.put("responses",formatResponses(new JSONObject(),(Document)content.get("response")));
         return jsonObject;
+    }
+
+    @Override
+    public JSONObject addResponseStatusCode(JSONObject original, Document content) {
+        if (!original.containsKey("responses")){
+            return null;
+        }
+
+//        JSONObject response = original.getJSONObject("responses");
+//        response.put(formatResponses(content));
+        original.put("responses",formatResponses(original.getJSONObject("responses"),(Document)content.get("response")));
+
+        return original;
     }
 
     protected JSONObject formatUrlParam(Map.Entry<String, Object> entry){
@@ -48,17 +64,16 @@ public class GetStrategy implements MethodTypeStrategy{
         jsonObject.put("in","query");
         jsonObject.put("name",entry.getKey());
         JSONObject schema = new JSONObject();
-        schema.put("type","string");
         schema.put("example",entry.getValue());
+        schema = PatternMatcherUtil.matchPattern((String) entry.getValue(),schema);
         jsonObject.put("schema",schema);
 
         return jsonObject;
     }
 
-    protected JSONObject formatResponses(Document response){
-        JSONObject jsonObject = new JSONObject();
+    protected JSONObject formatResponses(JSONObject original,Document response){
         JSONObject responseContent = new JSONObject();
-        jsonObject.put(String.valueOf(response.get("status_code")), responseContent);
+        original.put(String.valueOf(response.get("status_code")), responseContent);
 
         responseContent.put("description","response with code "+response.get("status_code"));
 
@@ -68,7 +83,7 @@ public class GetStrategy implements MethodTypeStrategy{
             responseContent.put("content", content);
         }
 
-        return jsonObject;
+        return original;
     }
 
     protected JSONObject formatContent(Document response){

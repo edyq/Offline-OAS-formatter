@@ -23,9 +23,13 @@ public class ApiDocEntryFormatHandler implements Handler{
 
     public void initStrategyMap(){
         methodTypeStrategyMap = new HashMap<>();
-        methodTypeStrategyMap.put("GET", new GetStrategy());
-        methodTypeStrategyMap.put("POST", new PostStrategy());
-        // tbd: delete and put
+        GetStrategy getStrategy = new GetStrategy();
+        PostStrategy postStrategy = new PostStrategy();
+        methodTypeStrategyMap.put("GET", getStrategy);
+        methodTypeStrategyMap.put("POST", postStrategy);
+        methodTypeStrategyMap.put("DELETE", getStrategy);
+        methodTypeStrategyMap.put("PUT", postStrategy);
+        methodTypeStrategyMap.put("PATCH",postStrategy);
     }
 
     @Override
@@ -41,19 +45,39 @@ public class ApiDocEntryFormatHandler implements Handler{
 
         ApiDoc apiDoc = ctx.getApiDoc();
 
-
-
-        for (ApiDocEntry apiDocEntry : apiDoc.getApiDocEntries()){
-            if (apiDocEntry.equals(document.getString("path"))){
-                // if exists, update(status code and method type)
-                return arg;
+        ApiDocEntry apiDocEntry = null;
+        // find the target entry
+        List<ApiDocEntry> entries = ctx.getApiDoc().getApiDocEntries();
+        for (ApiDocEntry entry : entries){
+            if (entry.getPath().equals(document.get("path"))){
+                apiDocEntry = entry;
+                break;
             }
         }
 
-        // if not, insert new
-        ApiDocEntry newApiDocEntry = new ApiDocEntry((String)document.get("path"));
-        apiDoc.addNewApiDocEntry(newApiDocEntry);
-        newApiDocEntry.getBody().put((String)document.get("method"), methodTypeStrategyMap.get(document.get("method")).construct(document));
+
+        // double check
+        if (apiDocEntry == null){
+            return null;
+        }
+
+        // insert method
+        apiDocEntry.getBody().put(document.getString("method"), insertBody(apiDocEntry, document));
+
         return arg;
+    }
+
+    public JSONObject insertBody(ApiDocEntry apiDocEntry, Document document){
+
+        // check for existing methods
+        for (String method : apiDocEntry.getBody().keySet()){
+            // method exist, add response code
+            if (method.equals(document.getString("method"))){
+                return methodTypeStrategyMap.get(method).addResponseStatusCode(apiDocEntry.getBody().get(method),document);
+            }
+        }
+
+        // method not exist, add method
+        return methodTypeStrategyMap.get(document.get("method")).construct(document);
     }
 }

@@ -13,5 +13,7 @@ import java.util.List;
 public interface MethodTypeStrategy {
 
     JSONObject construct(Document content);
+
+    JSONObject addResponseStatusCode(JSONObject original, Document content);
 }
 

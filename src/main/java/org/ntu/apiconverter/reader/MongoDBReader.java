@@ -28,7 +28,7 @@ public class MongoDBReader implements DatasourceReader{
                 "mongodb://127.0.0.1:27017"
         );
 
-        mongoDatabase = mongoClient.getDatabase("passiveProxy");
+        mongoDatabase = mongoClient.getDatabase("trafficGenerator");
 
         mongoCollection = mongoDatabase.getCollection("request");
     }

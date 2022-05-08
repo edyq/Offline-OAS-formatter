@@ -9,7 +9,47 @@ info:
  title: title
  version: 2.0.0
 paths: 
- /testPost: 
+ /: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /polyfills.js: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /vendor.js: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /main.js: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /runtime.js: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /ListAccounts: 
   post: 
    requestBody: 
     content: 
@@ -17,24 +57,981 @@ paths:
       schema: 
        type: object
        properties: 
-        a: 
-         type: string
-         example: 12a3
-        b: 
-         format: float
-         type: number
-         example: 12.34
    description: request without urlParam
    responses: 
     200: 
      description: response with code 200
-     content: 
-      application/json: 
-       schema: 
-        type: object
-        properties: 
-         test: 
-          type: integer
-          example: 456
-    502: 
-     description: response with code 502
+ /ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /ajax/libs/jquery/2.2.4/jquery.min.js: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /styles.css: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /rest/admin/application-configuration: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /assets/i18n/en.json: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /socket.io/: 
+  post: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    101: 
+     description: response with code 101
+ /rest/admin/application-version: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /rest/languages: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /rest/products/search: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /assets/public/images/JuiceShop_Logo.png: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /MaterialIcons-Regular.woff2: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /font-mfizz.woff: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /assets/public/favicon_js.ico: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/images/products/apple_juice.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /assets/public/images/products/eggfruit_juice.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /assets/public/images/products/artwork2.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /assets/public/images/products/carrot_juice.jpeg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /assets/public/images/products/banana_juice.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /assets/public/images/products/apple_pressings.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /assets/public/images/products/fruit_press.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /api/SecurityQuestions/: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /api/SecurityAnswers/: 
+  post: 
+   requestBody: 
+    content: 
+     application/json: 
+      schema: 
+       type: object
+       properties: 
+        answer: 
+         type: string
+         example: test
+        UserId: 
+         type: integer
+         example: 34
+        SecurityQuestionId: 
+         type: integer
+         example: 1
+   description: request without urlParam
+   responses: 
+    201: 
+     description: response with code 201
+ /rest/user/whoami: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /rest/products/1/reviews: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+  put: 
+   requestBody: 
+    content: 
+     application/json: 
+      schema: 
+       type: object
+       properties: 
+        author: 
+         type: string
+         example: bjogdpqteu@test.com
+        message: 
+         type: string
+         example: I like it
+   description: request without urlParam
+   responses: 
+    201: 
+     description: response with code 201
+ /api/Challenges/: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /api/Quantitys/: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /assets/public/images/products/green_smoothie.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /assets/public/images/products/permafrost.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /assets/public/images/products/lemon_juice.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /assets/public/images/products/melon_bike.jpeg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /rest/basket/6: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /assets/public/images/products/fan_facemask.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /api/BasketItems/: 
+  post: 
+   requestBody: 
+    content: 
+     application/json: 
+      schema: 
+       type: object
+       properties: 
+        quantity: 
+         type: integer
+         example: 1
+        ProductId: 
+         type: integer
+         example: 1
+        BasketId: 
+         type: integer
+         example: 6
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /api/BasketItems/9: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+  put: 
+   requestBody: 
+    content: 
+     application/json: 
+      schema: 
+       type: object
+       properties: 
+        quantity: 
+         type: integer
+         example: 2
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /api/Products/1: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /api/Addresss: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /rest/wallet/balance: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+  put: 
+   requestBody: 
+    content: 
+     application/json: 
+      schema: 
+       type: object
+       properties: 
+        balance: 
+         type: integer
+         example: 500
+        paymentId: 
+         type: integer
+         example: 7
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /api/Deliverys/1: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /api/Cards: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /rest/track-order/a393-ecc9c7f38b3166df: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /api/Addresss/7: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /rest/captcha/: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/images/ChatbotAvatar.png: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/images/uploads/default.svg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /rest/chatbot/status: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /rest/chatbot/respond: 
+  post: 
+   requestBody: 
+    content: 
+     application/json: 
+      schema: 
+       type: object
+       properties: 
+        query: 
+         type: string
+         example: test bot test bot
+        action: 
+         type: string
+         example: setname
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/images/carousel/2.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/images/carousel/5.png: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/images/carousel/3.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/images/carousel/6.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/images/carousel/4.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/images/carousel/1.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/images/carousel/7.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/images/uploads/%F0%9F%98%BC-: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/images/uploads/IMG_4253.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/images/uploads/favorite-hiking-place.png: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/images/uploads/my-rare-collectors-item!-[%CC%B2%CC%85$%CC%B2%CC%85(%CC%B2%CC%85-%CD%A1%C2%B0-%CD%9C%CA%96-%CD%A1%C2%B0%CC%B2%CC%85)%CC%B2%CC%85$%CC%B2%CC%85]-1572603645543.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/images/uploads/magn(et)ificent!-1571814229653.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /rest/deluxe-membership: 
+  post: 
+   requestBody: 
+    content: 
+     application/json: 
+      schema: 
+       type: object
+       properties: 
+        paymentMode: 
+         type: string
+         example: card
+        paymentId: 
+         type: integer
+         example: 7
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    400: 
+     description: response with code 400
+    304: 
+     description: response with code 304
+ /profile: 
+  post: 
+   requestBody: 
+    content: 
+     application/x-www-form-urlencoded: 
+      schema: 
+       type: object
+       properties: 
+        username: 
+         type: string
+         example: test+bot+test+botadmin
+   description: request without urlParam
+   responses: 
+    302: 
+     description: response with code 302
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /css: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /ajax/libs/jquery/3.3.1/jquery.min.js: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/css/userProfile.css: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /1.3.0/material.min.css: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /1.3.0/material.min.js: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /icon: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /s/roboto/v29/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /s/roboto/v29/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /s/materialicons/v126/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /profile/image/file: 
+  post: 
+   description: request without urlParam
+   responses: 
+    302: 
+     description: response with code 302
+ /assets/public/images/uploads/21.png: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /v1:GetModels: 
+  post: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /downloads: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /rest/image-captcha/: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /rest/user/login: 
+  post: 
+   requestBody: 
+    content: 
+     application/json: 
+      schema: 
+       type: object
+       properties: 
+        password: 
+         type: integer
+         example: 123123123
+        email: 
+         type: string
+         example: rvvuzrfvgd@test.com
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /dataerasure: 
+  post: 
+   requestBody: 
+    content: 
+     application/x-www-form-urlencoded: 
+      schema: 
+       type: object
+       properties: 
+        securityAnswer: 
+         type: string
+         example: test
+        email: 
+         type: string
+         example: rvvuzrfvgd%40test.com
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/css/dataErasure.css: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /api/Users/: 
+  post: 
+   requestBody: 
+    content: 
+     application/json: 
+      schema: 
+       type: object
+       properties: 
+        password: 
+         type: integer
+         example: 123123123
+        securityQuestion: 
+         type: object
+         properties: 
+          createdAt: 
+           type: string
+           example: 2022-03-12T07:41:58.864Z
+          question: 
+           type: string
+           example: Your eldest siblings middle name?
+          id: 
+           type: integer
+           example: 1
+          updatedAt: 
+           type: string
+           example: 2022-03-12T07:41:58.864Z
+        securityAnswer: 
+         type: string
+         example: test
+        passwordRepeat: 
+         type: integer
+         example: 123123123
+        email: 
+         type: string
+         example: rvvuzrfvgd@test.com
+   description: request without urlParam
+   responses: 
+    201: 
+     description: response with code 201
+ /rest/products/reviews: 
+  post: 
+   requestBody: 
+    content: 
+     application/json: 
+      schema: 
+       type: object
+       properties: 
+        id: 
+         type: string
+         example: BPwzaz3beKjLNCSDD
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /api/Addresss/: 
+  post: 
+   requestBody: 
+    content: 
+     application/json: 
+      schema: 
+       type: object
+       properties: 
+        country: 
+         type: string
+         example: SINGAPORE
+        zipCode: 
+         type: integer
+         example: 666666
+        mobileNum: 
+         type: integer
+         example: 88888888
+        streetAddress: 
+         type: string
+         example: 34 TEST AVENUE
+        city: 
+         type: string
+         example: SINGAPORE
+        fullName: 
+         type: string
+         example: TEST NAME
+        state: 
+         type: string
+         example: SINGAPORE
+   description: request without urlParam
+   responses: 
+    201: 
+     description: response with code 201
+ /api/Deliverys: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /api/Cards/: 
+  post: 
+   requestBody: 
+    content: 
+     application/json: 
+      schema: 
+       type: object
+       properties: 
+        expMonth: 
+         type: integer
+         example: 1
+        cardNum: 
+         type: integer
+         example: 1111111111111111
+        expYear: 
+         type: integer
+         example: 2080
+        fullName: 
+         type: string
+         example: TEST NAME
+   description: request without urlParam
+   responses: 
+    201: 
+     description: response with code 201
+ /api/Cards/7: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /rest/basket/6/checkout: 
+  post: 
+   requestBody: 
+    content: 
+     application/json: 
+      schema: 
+       type: object
+       properties: 
+        orderDetails: 
+         type: object
+         properties: 
+          deliveryMethodId: 
+           type: integer
+           example: 1
+          paymentId: 
+           type: integer
+           example: 7
+          addressId: 
+           type: integer
+           example: 7
+        couponData: 
+         type: string
+         example: bnVsbA==
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /ftp/order_a393-ecc9c7f38b3166df.pdf: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /favicon.ico: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /api/Feedbacks/: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /rest/memories/: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/images/products/no-results.png: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+    304: 
+     description: response with code 304
+ /assets/public/images/deluxe/blankBoxes.png: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /rest/order-history: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /api/Recycles/: 
+  post: 
+   requestBody: 
+    content: 
+     application/json: 
+      schema: 
+       type: object
+       properties: 
+        quantity: 
+         type: integer
+         example: 100
+        UserId: 
+         type: integer
+         example: 21
+        AddressId: 
+         type: integer
+         example: 7
+   description: request without urlParam
+   responses: 
+    201: 
+     description: response with code 201
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/images/padding/81px.png: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /rest/user/data-export: 
+  post: 
+   requestBody: 
+    content: 
+     application/json: 
+      schema: 
+       type: object
+       properties: 
+        format: 
+         type: integer
+         example: 1
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /rest/user/change-password: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /rest/2fa/status: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/images/products/orange_juice.jpg: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /rest/saveLoginIp: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200
+ /assets/public/images/JuiceShop_Logo_50px.png: 
+  get: 
+   description: request without urlParam
+   responses: 
+    200: 
+     description: response with code 200

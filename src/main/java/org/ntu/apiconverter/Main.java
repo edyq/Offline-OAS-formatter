@@ -2,6 +2,7 @@ package org.ntu.apiconverter;
 
 import org.ntu.apiconverter.handler.ApiDocEntryFormatHandler;
 import org.ntu.apiconverter.handler.DuplicationDetectionHandler;
+import org.ntu.apiconverter.merger.PathParameterIdentifier;
 import org.ntu.apiconverter.reader.DatasourceReader;
 import org.ntu.apiconverter.reader.MongoDBReader;
 import org.ntu.apiconverter.worker.HandlerChainWorker;
@@ -18,6 +19,7 @@ public class Main {
         Writer writer = new ApiDocToOpenApiWriter();
         datasourceReader.readAndCallback(handlerChainWorker);
 
-        writer.write(handlerChainWorker.getApiDoc());
+        PathParameterIdentifier identifier = new PathParameterIdentifier();
+        writer.write(identifier.update(handlerChainWorker.getApiDoc()));
     }
 }

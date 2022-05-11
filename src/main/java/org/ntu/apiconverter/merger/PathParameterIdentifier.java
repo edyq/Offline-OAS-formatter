@@ -22,6 +22,7 @@ public class PathParameterIdentifier {
 
         // 2. identify
         List<Pair<Integer, List<List<Token>>>> pathSegments = identify(urlGroups);
+        System.out.println(pathSegments);
 
         // 3. reconstruct
         HashSet<List<Token>> patternWithoutParams = new HashSet<>();
@@ -143,11 +144,32 @@ public class PathParameterIdentifier {
         for (int i = 0; i < length - n; i++) {
             for (Url url : urlList) {
                 List<Token> ngram = url.getTokenList().subList(i, i + n);
-                res.put(ngram, res.getOrDefault(ngram, 0) + 1);
+                if (res.keySet().size() == 0) res.put(ngram, 1);
+                else {
+                    boolean found = false;
+                    for (List<Token> targetList : res.keySet()) {
+                        // if ngram already exist in the result, increment counter by 1
+                        if (isNGramMatched(targetList, ngram)) {
+                            res.put(targetList, res.get(targetList) + 1);
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found)
+                        res.put(ngram, 1);
+                }
             }
         }
-
         return res;
+    }
+
+    private boolean isNGramMatched(List<Token> target, List<Token> test) {
+        if (target.size() != test.size()) return false;
+
+        for (int i = 0; i < target.size(); i++)
+            if (!target.get(i).getValue().equals(test.get(i).getValue())) return false;
+
+        return true;
     }
 
     /**
